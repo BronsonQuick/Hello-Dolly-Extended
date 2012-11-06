@@ -13,10 +13,8 @@ Author URI: http://www.sennza.com.au/
 */
 
 function dolly_extended() {
-	/* Because we made the instaniated class a global we can access it in this plugin */
-	global $hello_dolly;
 	/* Now we need to remove the action that adds the Hello Dolly lyrics in the dashboard so that only our plugin works */
-	remove_action( 'admin_notices', array( $hello_dolly, 'print_lyric' ) );
+	remove_action( 'admin_notices', array( Hello_Dolly::get_instance(), 'print_lyric' ) );
 	/* Pull in the class we've written to extend the rewritten "Hello Dolly" plugin */
 	require_once( dirname( __FILE__ ) . '/class-extended-dolly.php' );
 }

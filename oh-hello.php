@@ -13,9 +13,17 @@ Author URI: http://ma.tt/
 */
 
 class Hello_Dolly {
+	private static $instance;
+
+	static function get_instance() {
+		if ( ! self::$instance )
+			self::$instance = new Hello_Dolly;
+
+		return self::$instance;
+	}
 
 	/* We need to add both the actions used in the original Hello Dolly when the class is constructed */
-	public function __construct() {
+	private function __construct() {
 		add_action( 'admin_notices' , array( $this, 'print_lyric' ) );
 		add_action( 'admin_head' , array( $this, 'print_css') );
 	}
@@ -85,4 +93,4 @@ Dolly'll never go away again";
 }
 
 /* Make a global to store our new class so that other plugins can access and modify it */
-$hello_dolly = new Hello_Dolly();
+Hello_Dolly::get_instance();
