@@ -85,5 +85,4 @@ Dolly'll never go away again";
 }
 
 /* Make a global to store our new class so that other plugins can access and modify it */
-global $hellodolly;
 $hellodolly = new Hello_Dolly();
