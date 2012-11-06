@@ -26,9 +26,10 @@ Bye bye blues";
 	$lyrics = explode( "\n", $lyrics );
 
 	// And then randomly choose a line
-	return wptexturize( $lyrics[mt_rand( 0, count( $lyrics ) - 1 )] );
+	return wptexturize( $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ] );
 	}
 }
+
 /* Make our extended class global so that another plugin developer could extend and modify our plugin as well */
 global $hellodollyextended;
 $hellodollyextended = new Hello_Dolly_Extended();

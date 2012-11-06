@@ -12,7 +12,7 @@ Version: 0.1
 Author URI: http://www.sennza.com.au/
 */
 
-function dolly_extended(){
+function dolly_extended() {
 	/* Because we made the instaniated class a global we can access it in this plugin */
 	global $hellodolly;
 	/* Now we need to remove the action that adds the Hello Dolly lyrics in the dashboard so that only our plugin works */

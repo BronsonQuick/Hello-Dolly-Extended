@@ -15,7 +15,7 @@ Author URI: http://ma.tt/
 class Hello_Dolly {
 
 	/* We need to add both the actions used in the original Hello Dolly when the class is constructed */
-	public function __construct(){
+	public function __construct() {
 		add_action( 'admin_notices' , array( $this, 'print_lyric' ) );
 		add_action( 'admin_head' , array( $this, 'print_css') );
 	}
@@ -55,7 +55,7 @@ Dolly'll never go away again";
 		$lyrics = explode( "\n", $lyrics );
 
 		// And then randomly choose a line
-		return wptexturize( $lyrics[mt_rand( 0, count( $lyrics ) - 1 )] );
+		return wptexturize( $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ] );
 	}
 
 	// This just echoes the chosen line, we'll position it later
@@ -71,19 +71,19 @@ Dolly'll never go away again";
 		$x = is_rtl() ? 'left' : 'right';
 
 		echo "
-	<style type='text/css'>
-	#dolly {
-		float: $x;
-		padding-$x: 15px;
-		padding-top: 5px;
-		margin: 0;
-		font-size: 11px;
+			<style type='text/css'>
+			#dolly {
+				float: $x;
+				padding-$x: 15px;
+				padding-top: 5px;
+				margin: 0;
+				font-size: 11px;
+			}
+			</style>
+		";
 	}
-	</style>
-	";
-	}
-
 }
+
 /* Make a global to store our new class so that other plugins can access and modify it */
 global $hellodolly;
 $hellodolly = new Hello_Dolly();
