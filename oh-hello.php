@@ -16,11 +16,11 @@ class Hello_Dolly {
 
 	/* We need to add both the actions used in the original Hello Dolly when the class is constructed */
 	public function __construct(){
-		add_action( 'admin_notices' , array( $this, 'hello_dolly' ) );
-		add_action( 'admin_head' , array( $this, 'dolly_css') );
+		add_action( 'admin_notices' , array( $this, 'print_lyric' ) );
+		add_action( 'admin_head' , array( $this, 'print_css') );
 	}
 
-	public function hello_dolly_get_lyric() {
+	public function get_lyric() {
 		/* This is where Matt adds the lyrics to Hello Dolly */
 		$lyrics = "Hello, Dolly
 Well, hello, Dolly
@@ -59,14 +59,14 @@ Dolly'll never go away again";
 	}
 
 	// This just echoes the chosen line, we'll position it later
-	public function hello_dolly() {
+	public function print_lyric() {
 		/* The '$this' refers to the class that's currently in use */
-		$chosen = $this->hello_dolly_get_lyric();
+		$chosen = $this->get_lyric();
 		echo "<p id='dolly'>$chosen</p>";
 	}
 
 	// We need some CSS to position the paragraph
-	public function dolly_css() {
+	public function print_css() {
 		// This makes sure that the positioning is also good for right-to-left languages
 		$x = is_rtl() ? 'left' : 'right';
 

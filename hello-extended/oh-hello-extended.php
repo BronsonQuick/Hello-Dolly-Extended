@@ -16,7 +16,7 @@ function dolly_extended(){
 	/* Because we made the instaniated class a global we can access it in this plugin */
 	global $hellodolly;
 	/* Now we need to remove the action that adds the Hello Dolly lyrics in the dashboard so that only our plugin works */
-	remove_action( 'admin_notices', array( $hellodolly, 'hello_dolly' ) );
+	remove_action( 'admin_notices', array( $hellodolly, 'print_lyric' ) );
 	/* Pull in the class we've written to extend the rewritten "Hello Dolly" plugin */
 	require_once( 'class-extended-dolly.php' );
 }
