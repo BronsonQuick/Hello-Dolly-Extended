@@ -4,7 +4,6 @@
 */
 
 class Hello_Dolly_Extended extends Hello_Dolly {
-
 	private static $instance;
 
 	static function get_instance() {
