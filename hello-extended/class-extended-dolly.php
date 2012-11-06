@@ -14,6 +14,10 @@ class Hello_Dolly_Extended extends Hello_Dolly {
 		return self::$instance;
 	}
 
+	private function __construct() {
+		// Just here to prevent new instances of this class from being created
+	}
+
 	/* We want to replace the lyrics in Hello Dolly with a song called "Bye Bye Blues" by Fred Hamm, Dave Bennett, Bert Lown, and Chauncey Gray
 	* To do this all we have to do is declare the hello_dolly_get_lyric function again and add our new lyrics
 	*/
