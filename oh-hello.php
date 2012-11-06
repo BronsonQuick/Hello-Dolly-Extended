@@ -62,7 +62,7 @@ Dolly'll never go away again";
 	public function print_lyric() {
 		/* The '$this' refers to the class that's currently in use */
 		$chosen = $this->get_lyric();
-		echo "<p id='dolly'>$chosen</p>";
+		echo sprintf( "<p id='dolly'>%s</p>", esc_html( $chosen ) );
 	}
 
 	// We need some CSS to position the paragraph
