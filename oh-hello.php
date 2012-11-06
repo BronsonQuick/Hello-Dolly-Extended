@@ -55,14 +55,14 @@ Dolly'll never go away again";
 		$lyrics = explode( "\n", $lyrics );
 
 		// And then randomly choose a line
-		return wptexturize( $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ] );
+		return $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ];
 	}
 
 	// This just echoes the chosen line, we'll position it later
 	public function print_lyric() {
 		/* The '$this' refers to the class that's currently in use */
 		$chosen = $this->get_lyric();
-		echo sprintf( "<p id='dolly'>%s</p>", esc_html( $chosen ) );
+		echo sprintf( "<p id='dolly'>%s</p>", wptexturize(  esc_html( $chosen ) ) );
 	}
 
 	// We need some CSS to position the paragraph

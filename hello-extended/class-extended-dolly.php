@@ -26,7 +26,7 @@ Bye bye blues";
 	$lyrics = explode( "\n", $lyrics );
 
 	// And then randomly choose a line
-	return wptexturize( $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ] );
+	return $lyrics[ mt_rand( 0, count( $lyrics ) - 1 ) ];
 	}
 }
 
