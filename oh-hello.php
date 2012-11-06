@@ -58,19 +58,25 @@ Dolly'll never go away again";
 		return wptexturize( $lyrics[mt_rand( 0, count( $lyrics ) - 1 )] );
 	}
 
+	// returns the chosen line
+	public function get_hello_dolly() {
+		/* The '$this' refers to the class that's currently in use */
+		$chosen = $this->hello_dolly_get_lyric();
+		return "<p id='dolly'>$chosen</p>";
+	}
+
 	// This just echoes the chosen line, we'll position it later
 	public function hello_dolly() {
 		/* The '$this' refers to the class that's currently in use */
-		$chosen = $this->hello_dolly_get_lyric();
-		echo "<p id='dolly'>$chosen</p>";
+		echo $this->get_hello_dolly();
 	}
 
-	// We need some CSS to position the paragraph
-	public function dolly_css() {
+	// We need some CSS to position the paragraph, returns the css
+	public function get_dolly_css() {
 		// This makes sure that the positioning is also good for right-to-left languages
 		$x = is_rtl() ? 'left' : 'right';
 
-		echo "
+		return "
 	<style type='text/css'>
 	#dolly {
 		float: $x;
@@ -81,6 +87,11 @@ Dolly'll never go away again";
 	}
 	</style>
 	";
+	}
+
+	// We need some CSS to position the paragraph, echoes the css
+	public function dolly_css() {
+		echo $this->get_dolly_css();
 	}
 
 }
