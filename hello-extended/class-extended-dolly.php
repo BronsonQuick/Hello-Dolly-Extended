@@ -31,5 +31,5 @@ Bye bye blues";
 }
 
 /* Make our extended class global so that another plugin developer could extend and modify our plugin as well */
-global $hellodollyextended;
-$hellodollyextended = new Hello_Dolly_Extended();
+global $hello_dolly_extended;
+$hello_dolly_extended = new Hello_Dolly_Extended();
